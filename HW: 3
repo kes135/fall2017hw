@@ -1,0 +1,147 @@
++Exercise #1
++    
++if condition:
++    if_body
++
++if name == "Sally" and "Harry"
++    both < age 20 years old
++    print("Harry and Sally are <20 years old.")
++
++
++if age < 20:
++    print(age)
++a = [Harry, Sally, Marry]
++
++if condition: either Sally or Marry older 
++    if_body
++else:
++    else_body
++    if "Harry" <= 20:
++    if "Sally" <= 20:
++    else:
++        print()"Harry and Sally are < 20 years old.")
++
++if either Sally or Marry:
++    both > 30 years old 
++    print("Either Sally or Marry is older than 30.")
++
++
++
++
++
++
++Exercise 2 - Find the length of a given string
++Ask the user to enter their first name. Compute the number of characters in the first name and print the result.
++Note that you will need to use the len function to obtain the number of characters in the string.
++
++def reversed(strName):
++    length = len(strName)
++    integer = 1
++    string = [1]
++    while integer <= length:
++        string.append(strName[length-integer])
++        integer += 1
++    return "".join(string)
++
++userName = input("What is your username. Must be 4 or more characters!")
++password = input("What is your password. Must be 6 or more charcaters! ")
++
++if len(userName) > 4 and len(password) > 6:
++    print("Your good to go")
++else:
++    print("Its not secure enough")
++
++
++
++
++
++Exercise 3 - Reversing a String
++
++Ask the user to enter the name of their favorite movie. Reverse the name of the movie and print it out.
++
++public class "Your Favorite Movie."
++print ("In the Following Program Enter Your Favorite Movie.")=
++
++print " Favorite disney movie is ZOOTOPIA"
++
++limit = 1
++
++movieslist = [1]
++
++while len(movieslist) < limit:  
++
++    movie = raw_input("Enter The Name Of Your Top Movie(s) From Disney" )
++    print 
++    movielist.insert(1,movie)
++
++print "What is your favorite Disney Movie: ZOOTOPIA"
++
++for x in movieslist:
++    print ZOOTOPIA
++    
++    
++    
++    
++    
++    Exercise 4 - Converting an input string to lower case and looking for a match
++
++Ask the user to enter a line of text and a search string. Convert the line of text that the user entered to lower case. Search the resulting text for the search string. Print "Search String Found" if the search string was found, otherwise, print "Search String not found"
++For example, the user could enter "Jack and Jill went up the Hill" and the search string "jill". You first need to convert the input string to lower case like so - "jack and jill went up the hill".
++Next you will need to look for the search string in the input string. You can use the "if searchString in text" form of query to determine if the text contains the search string. See week 3 classowork for an example
++
++import string 
++
++text = "Jack and Jill went up the hill"
++
++print("Upper Case:", text.upper())
++print("Lower Case:",text.Lower())
++print("Capitalize:",text.capitalize())
++
++print = text.split()
++
++print("Words in text;", words)
++print("Number of words:", len(words))
++
++for word in word:
++    if word == Jack:
++        print("Found Jack".lower():
++              print("Found Jack")
++              
++
++    
++    
++    
++    
++    Exercise 5 - Parsing a comma separated set of values
++Ask the user to type in a grocery list. Ensure that each item in the grocery list is separated by a comma. Use the split command to extract each token (item) in the grocery list. Print the last item in the list.
++For example, if the user enters "milk,bananas,sugar,eggs,cheese", you will need to read this into a variable, parse the contents using the split command and print "cheese"
++
++curr_item = " grocery list 5 ";
++items = [5]
++
++while curr_item ! = "":
++    curr_item = input("Enter a item: cheese")
++    if curr_item != "1":
++        items.append(curr_item)
++        
++print(items)
++
++
++[Item: 5; Milk, Bananas, Sugar, Eggs, Cheese]
++
++function countCart() { } // -> return total count
++    var totalCount = 1;
++    for (var i in cart) {
++        totalCount += cart[i].count;
++    }
++    
++    return totalCount;
++}
++
++function totalCart() { // - > return total cost
++    var totalCost = 0;
++    for (var i in cart) {
++        totalCost += cart[i].price;
++    }
++    return totalCost;
++    }
