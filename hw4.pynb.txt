@@ -1,0 +1,126 @@
+HW4.pynb
+Exercise 1 - Testing your knowledge of lists, tuples and dictionaries
+Answer the below questions
+What is the main difference between a list and a tuple
+How does a dictionary object differ from a list.
+<< Double click this cell and enter your result >>
+
+List is mutable and tuples is immutable. The main difference between mutable and immutable is memory usage when you are trying to append an item. When you create a variable, some fixed memory is assigned to the variable. If it is a list, more memory is assigned than actually used.
+
+Apart from tuples being immutable there is also a semantic distinction that should guide their usage. Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences. Tuples have structure, lists have order.
+
+Using this distinction makes code more explicit and understandable, naturally one might want to add or remove locations from the list, so it makes sense that lists are mutable. On the other hand it doesn't make sense to add or remove items from an existing location, hence tuples are immutable.
+
+A Dictionary is an interface for mapping one type of object or value to another. It works like a real dictionary, or a phone book: you have a "key" in mind like a person’s name, and when you look it up, you get some information that’s identified by that key, like an address or phone number. Each key can only be listed once, although two different keys are still allowed to have the same value. So a dictionary whose keys are strings and whose values are integers would be IDictionary<string,int>.
+
+
+
+
+/
+Exercise 2 - Initializing a list, tuple and dictionary
+Create a list object with a set of any 10 numbers. Print the result
+Create a tuple object with a set of 10 numbers. Print the result
+Create a dictionary object with a set of 10 numbers. Print the result
+
+import random
+my_random=[]
+< a= range(10)
+# [0,1,2,3,4,5,6,7,8,9]
+b = sum(a)
+print b
+# prints 45
+a = ['5', '6']
+# import Decimal: from decimal import Decimal
+    my_randoms.append(random.randrange(1,101,1))
+    print (my_randoms)
+
+
+
+
+/
+Exercise 3 - Displaying values in a list object
+Create a list object with 10 arbitrary numbers. Use a for loop to display every other element.
+Example:
+If your list has [2,3,4,5,6], then you will need to display [2,4,6]
+Hint: Make use the last step parameter in the range function to do this
+/////////////////////////////////////////////////////////////////////////////
+List using 10 #'s:
+cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+for C in Cdegrees:
+     F = (9.0/5)*C + 32
+     print C, F
+     
+Cdegrees = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25,30, 35 , 40]
+print ' C       F'
+for C in Cdegrees: 
+    F = (9.0/5)*C + 32
+    print '%5d %5.1f' % (C,F)    
+
+
+
+
+
+/
+Exercise 4 - Sorting a list of strings
+Ask the user to enter a list of names. Sort the names in ascending order.
+Hint: Use the same logic that we used in class to sort numbers. When used with strings, Python will sort the strings in alphabetical order
+////////////////////////////////////////////////////////////////////////////////
+
+mylist = ["Annie", "Bonnie", "Liz"]
+mylist.sort()
+for x in sorted(mylist):
+>>> sorted(["annie", "bonnie", "liz"], key=value, reverse=True)
+['bonnie', 'liz', 'annie']
+>>> sorted(["abcdefg", "vi"], key=value, reverse=True)
+['vi', 'abcdefg']
+>>> sorted(('cj', 'al'), key=value, reverse=True)
+['cj', 'al']  # ok!
+>>> sorted(('al', 'cj'), key=value, reverse=True)
+['al', 'cj']  # oh.
+def value(name):
+    """Evaluate and return value of the name."""
+    return sum([or(letter) - 3 for letter in name]), name
+>>> sorted(('al', 'cj'), key=value, reverse=True)
+['cj', 'al']
+>>> sorted(('cj', 'al'), key=value, reverse=True)
+['cj', 'al']
+ef value(name):
+    """Evaluate and return value of the name."""
+    return sum([or(letter) - for letter in name])
+
+
+
+
+/
+Exercise 5 - Accessing values in a dictionary object
+Initialize a dictionary object with the below key, value pairs
+Key	Value
+1	Harry
+2	Sally
+3	Joe
+4	Mathew
+Ask the user to enter a key between 1 and 4.
+Display the corresponding value in the dictionary
+////////////////////////////////////////////////////////////////////////////
+User enter: [1,2,3,4]: items;key
+>>> d = {"one": [(1,3),(1,4)], "two": [(1,2),(1,2),(1,3)], "three": [(1,1)]}
+>>> for k in sorted(d, key=lambda k: len(d[k]), reverse=True):
+        print k,
+two one three
+>>> print '2 '.join(sorted(d, key=lambda k: len(d[k]), reverse=True))
+two one three:
+>>> var1 = [1,2,3,4]
+>>> var2 = [5,6,7]
+>>> d = {1:var1, 2:var2}
+>>> lengths = {key:len(value) for key,value in d.iteritems()}
+>>> lengths
+{1: 4, 2: 3}
+>>> d.items()
+[(1, [1, 2, 3, 4]), (2, [5, 6, 7])]
+>>> d.items()[0]
+(1, [1, 2, 3, 4])
+>>> len(d.items()[0][1])
+4
+print 
+[1,2,3,4]; var2[5,6,7]= d{1:var1, 2:var2} 
+
