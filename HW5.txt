@@ -1,0 +1,250 @@
+Exercise 1 - Testing your knowledge of files
+Answer the below questions
+In your own words, describe what a file is?
+A file is an object on a computer that stores data, information, settings, or commands used with a computer program. In a graphical user interface (GUI) such as Microsoft Windows, files display as icons that relate to the program that opens the file.
+
+Why is it important to close a file after we are done using it? 
+
+It puts your program in the garbage collectors hands - though the file in theory will be auto closed, it may not be closed. Python 3 and Cpython generally do a pretty good job at garbage collecting, but not always, and other variants generally suck at it.
+It can slow down your program. Too many things open, and thus more used space in the RAM, will impact performance.
+For the most part, many changes to files in python do not go into effect until after the file is closed, so if your script edits, leaves open, and reads a file, it won't see the edits.
+You could, theoretically, run in to limits of how many files you can have open.
+As @sai stated below, Windows treats open files as locked, so legit things like AV scanners or other python scripts can't read the file.
+
+<< Double click this cell and enter your result >>
+Exercise 2 - Write to a file
+Write a python program to write the below lines to a file
+Name, Age, Gender, Profession
+Harry, 23, Male, Software Engineer
+Sam, 25, Male, Lawyer
+Lisa, 29, Female, Computer Scientist
+Mary, 22, Female, Doctor
+Below are a set of recommended steps to accomplish this
+open a file in write mode. This will return a handle to the file
+use the write method to write each line to the file using the file handle returned in the open call
+close the file when done
+Once done, go to the folder where the file is and open it to make sure that this is written.
+Refer to class exercises especially "In [22]" in https://github.com/cis024c/fall2017classwork/blob/master/week5/working_with_files.ipynb
+In [9]:
+def read_info():
+    with open("info.txt", "r") as f:
+        name, age = [Harry, 23], [Sam,25], [Lisa, 29], [Mary, 22]
+        for line in f.readlines():
+            n, a  = line.strip().split(' ')
+            name.append(n)
+            age.append(int(a))
+    return name, age
+
+def sort_info_by_age(name, age):
+    """Sort arrays by age so that youngest member is at first place"""
+    sorted_ids = sorted(range(len(age)), key=lambda k: float(age[k]))
+    new_name = [name[i] for i in sorted_ids ]
+    new_age = [age[i] for i in sorted_ids ]
+    return new_name, new_age
+
+def get_ids_for_age_intervall(start_age, end_age, ages):
+    """get indexes for members in a given age intervall"""
+    ids = []
+    for i, age in  enumerate(ages):
+        if (start_age<=age) and (age<=end_age):
+            ids.append(i)
+    return ids
+
+name, age = read_info()
+name, age = sort_info_by_age(name, age)
+
+groups = [(Harry,23), (Sam,25), (Lisa, 29), (Mary,22)]
+
+with open("output.txt", "w") as f:
+    #output youngest and oldest member
+    f.write("%s %i\n" % (name[0], age[0]))
+    f.write("%s %i\n" % (name[-1], age[-1]))
+
+    #go trough age groups and write to file
+    for start_age, end_age in groups:
+        ids = get_ids_for_age_intervall(start_age, end_age, age)
+        if ids:
+            f.write("\n%i-%i\n" % (start_age, e
+
+
+
+
+def parse_info(filepath):
+    people_list = []
+    groups = {"0-6": [], "7-15": [], "19-30": []}
+    with open(filepath, 'r') as info:
+        for line in info:
+            people_list.append({"name": line.split(" ")[0], "age": line.split(" ")[1]})
+        people_list = sorted(people_list, key=lambda k: k['age'])
+        youngest = people_list[0]
+        oldest = people_list[-1]
+        for person in people_list:
+            if 0 <= person['age'] < 7:    
+                groups['0-6'].append(person)
+            elif 7 <= person['age'] < 16:
+                groups['7-15'].append(person)
+            elif 19 <= person['age'] <= 30:
+                groups['19-30'].append(person)
+
+Exercise 3 - Reading from a file
+Read and display the data from the file you had just written to.
+Below are a set of recommended steps to accomplish this
+open the file in read mode. This will return a handle to the file.
+You can now iterate through each line in the file and then use readline to read each line.
+Display each line as you read it in
+Note that you can also use the read method to read in all lines or the readlines method to read all lines into a list.
+In [18]:
+def read_info():
+    """Read info file"""
+    with open("info.txt", "r") as f:
+        name, age = [], []
+        for line in f.readlines():
+            n, a  = line.strip().split(' ')
+            name.append(n)
+            age.append(int(a))
+    return name, age
+
+def sort_info_by_age(name, age):
+    """Sort arrays by age so that youngest member is at first place"""
+    sorted_ids = sorted(range(len(age)), key=lambda k: float(age[k]))
+    new_name = [name[i] for i in sorted_ids ]
+    new_age = [age[i] for i in sorted_ids ]
+    return new_name, new_age
+
+def get_ids_for_age_intervall(start_age, end_age, ages):
+    """get indexes for members in a given age intervall"""
+    ids = []
+    for i, age in  enumerate(ages):
+        if (start_age<=age) and (age<=end_age):
+            ids.append(i)
+    return ids
+
+name, age = read_info()
+name, age = sort_info_by_age(name, age)
+
+groups = [(Harry,23), (Sam,25), (Lisa, 29), (Mary,22)]
+
+with open("output.txt", "w") as f:
+    #output younges  and oldest member
+    f.write("%s %i\n" % (name[0], age[0]))
+    f.write("%s %i\n" % (name[-1], age[-1]))
+
+    #go trough age groups and write to file
+    for start_age, end_age in groups:
+        ids = get_ids_for_age_intervall(start_age, end_age, age)
+        if ids:
+            f.write("\n%i-%i\n" % (start_age, end_age))
+            for i in ids:
+                f.write("%s %i\n" % (name[i], age[i]))
+
+
+### END CODE
+Exercise 4 - Finding the average age of users in a file
+Write a python program to find the average age of users in the file you just created.
+Below are a set of recommended steps to accomplish this
+Open the file in read mode
+Read in each line of the file
+Split each line in the file to get the age
+Find the average age and display it
+In [19]:
+### YOUR CODE GOES BELOW
+
+class Student :
+    def __init__(self, id):
+        self._studentId = id
+        self._marks = []
+    ##
+    # Converts the student to a string .
+    # @return The string representation .
+    #
+
+    # Sets the student's ID.
+    # @param newId is the student's new ID.
+    #
+    def setStudentId(self, id):
+        self._studentId = id
+
+    ##
+    # Gets the student's ID.
+    # @return the student's ID
+    #
+    def getStudentId(self, newId):
+        return self._newId
+
+    ##
+    # Appends a mark to the marks list
+    #
+    def addMark(self, mark):
+        self._marks.append(mark)
+
+    def __repr__(self) :
+        # Build a string starting with the student ID
+        # followed by the details of each mark .
+        s = "Student ID :" + self._studentId + " "
+        if len(self._marks) == 0 :
+            s += " <none \n>"
+        else :
+            for mark in self._marks :
+                s += " Course Module: " + mark.getModule() + " Raw Mark: " + str(mark.getRawMark())
+
+        return s
+
+    ##
+    # Method to calculate the students average mark
+    #
+    def calculateAverageMark(self):
+        totalMarks = 0
+        count = 0
+        for mark in self._marks :
+            if mark == 0 :
+                count = count
+            else :
+                count = count + 1
+
+            totalMarks = totalMarks + mark
+            average = totalMarks / count
+
+        return average
+
+
+
+### END CODE
+Exercise 5 - Appending to a file
+Write a python program to append information provided by users to an existing file.
+You will need to ask the user to enter their name, age, gender and profession using the raw_input method (for Python 3 users, you will use the input method).
+open the file you just created in the above exercies in append mode and write this information to the file.
+Remember to make sure that the information you append is entered in the same format where each field is separated by commas.
+In [20]:
+### YOUR CODE GOES BELOW///
+
+
+def main():
+    f= open("guru99.txt","w+")
+     #f=open("guru99.txt","a+")
+       for i in range(10):
+         f.write("This is line %d\r\n" % (i+1))
+       f.close()   
+   #Open the file back and read the contents
+   #f=open("guru99.txt", "r")
+   #   if f.mode == 'r': 
+   #     contents =f.read()
+   #     print contents
+   #or, readlines reads the individual line into a list
+   #fl =f.readlines()
+   #for x in fl:
+   #print x
+if __name__== "__main__":
+  main()
+
+
+
+
+
+
+
+
+
+
+
+
+
