@@ -1,0 +1,91 @@
+Exercise 1 - Testing your knowledge of functions
+Answer the below questions
+What is a function in Python? A block of organized, resuable code that is used to perform a single, related action. Provide better modularity for your appliction and a high degree of code reusing.  Gives you many built in like print(), etc. Create y 
+your own fucntions. 
+What are the advantages of using functions? Adavantages of using functions are; reducing duplicate of code. Decomposing complex problems int simpler pieces. 
+
+Exercise 2 - Max of three numbers
+Write a Python function to find the Max of three numbers.
+Make sure you invoke this function in your main program and display the result
+In [10]:
+### YOUR CODE GOES 
+# Python Program - Find Largest of Three Numbers
+	
+while True:
+	print("Enter 'x' for exit.")
+	print("Enter any three numbers: ")
+	num1 = input()
+	num2 = input()
+	num3 = input()
+	if num1 == 'x':
+		break
+	else:
+		number1 = int(num1)
+		number2 = int(num2)
+		number3 = int(num3)
+		largest = number1
+		if largest < number2:
+			if number2 > number3:
+				largest = number2
+			else:
+				largest = number3
+		elif largest < number3:
+			if number3 > number2:
+				largest = number3
+			else:
+				largest = number2
+		else:
+			largest = number1
+		print("Largest of given three numbers is",largest,"\n")
+
+### END CODE
+Exercise 3 - Finding the sum of numbers in a list
+Write a Python function to sum all the numbers in a list
+Make sure you invoke this function in your main program and display the result
+In [11]:
+### YOUR CODE GOES BELOW
+def sum(numbers):
+    total = 0
+    for x in numbers:
+        total += x
+    return total
+print(sum((8, 2, 3, 0, 7)))
+
+# ASSUMING PYTHON3
+
+user_input = input("Enter a list of numbers, comma-separated\n>> ")
+user_input_as_list = user_input.split(",")
+user_input_as_numbers_in_list = map(float, user_input_as_list) # maybe int?
+# This will fail if the user entered any input that ISN'T a number
+
+def sum(lst):
+    accumulator = 0
+    for element in lst:
+        accumulator += element
+    return accumulator
+
+### END CODE
+Exercise 4 - Finding the product of numbers in a list
+Write a Python function to multiply all the numbers in a list
+Make sure you invoke this function in your main program and display the result
+In [12]:
+### YOUR CODE GOES BELOW
+>>> import operator
+>>> numbers = range(1, 11)
+>>> numbers
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> reduce(operator.mul, numbers)
+3628800
+
+Exercise 5 - Reversing a String
+Write a Python function to reverse a string
+Make sure you invoke this function in your main program and display the result
+In [5]:
+### YOUR CODE GOES BELOW
+def reverse(string):
+    if len(string) == 0:
+        return string
+    else:
+        return reverse(string[1:]) + string[0]
+a = str(input("Enter the string to be reversed: "))
+print(reverse(a))
