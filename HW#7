@@ -1,0 +1,160 @@
+EXERCISE#1
+1) A program with a syntax error cannot be executed. The program with a runtime error can be executed but dumps under certain conditions. 
+Syntax errors happen when the interpreter find something not compelling with Python's syntax. For example: The Python's grammar doesn't recognize the input syntax as a valid Python program. This may happen when:
+
+-You forgot to add : at the end of an if, def, class, etc expression
+-You forgot to close some parenthesis or brackets, etc.
+-A lot of places else when you don't adhere to python's grammar
+;
+2) Execution error is when a programing language is running post compilation and if the logic flow has any defect. This error can only be figured out when the program is running.
+
+If the machine language cannot comprehend the logic during the execution then it will result in execution error.
+3)An exception is a problem that arises during the execution of a program. When an Exception occurs the normal flow of the program is disrupted and the program/Application terminates abnormally, which is not recommended, therefore, these exceptions are to be handled.
+process of responding to the occurrence, during computation, of exceptions – anomalous or exceptional conditions requiring special processing – often changing the normal flow of program execution. It is provided by specialized programming language constructs, computer hardware mechanisms like interrupts or operating system IPC facilities like signals.
+Exception handling is the process of responding to the occurrence, during computation, of exceptions – anomalous or exceptional conditions requiring special processing – often changing the normal flow of program execution.
+
+4)Execution error
+
+EXERCISE#2 
+1) 
+
+Exercise#3
+Write a Python program that asks the user to enter a GPA (integer values - 0,1,2,3 or 4). Convert the input from the user into an integer. Write an exception handler to handle the ValueError exception and display the message "ValueError occurred. Please try again". If the value entered by the user is not compatible with integer values the program will raise a ValueError exception and display the message from within the exception handler.
+import system
+def GetName():
+    name = raw_input("Enter the student's name  ")
+    grade1 = raw_input("Enter a grade: 1 ")
+    grade2 = raw_input("Enter a grade: 2 ")
+    grade3 = raw_input("Enter a grade: 3 ")
+    grade4 = raw_input("Enter a grade: 4 ")
+    return name, grade1, grade2, grade3, grade4
+
+grademap = { 'A': 1, 'B': 2, 'C': 3, 'D': 4 }
+
+def grade2int(x):
+    try:
+        return grademap[x.upper()]
+    except KeyError:
+        raise Exception('invalid grade: 0' + x)
+
+def GetGrades(grades):
+    return map(grade2int, grades)
+
+def CalcGPA(grades):
+    return sum(grades)/len(grades)
+
+def main(name, GPA):
+    print "The GPA for", name, "is", GPA
+    return 0
+
+if __name__ == '__main__':
+    name, grade1, grade2, grade3, grade4 = GetName()
+    grades = GetGrades([grade1, grade2, grade3, grade4])
+    GPA = CalcGPA(grades)
+    main(name, GPA)
+
+EXERCISE#4
+Create a list of 5 items in a grocery cart. For example, your list can be something like the below
+Example of a list with 2 items: groceryList = ["suger","rice"]
+Write an exception handler to handle an IndexError exceptio and store the details of the exception in a variable called details. If the exception occurs, print out a message saying "Exception Occurred" along with the details (from details variable).
+In your program attempt to access the 6th item in the list.
+Since there are only 5 elements, the exception handler should be triggered and the message printed inside the exception should be printed.
+
+class shoppingCart:
+    def __init__(self, items):
+        self.items = []
+    def show(self):
+        print(self.items)
+    def addItem(self,item):
+        if item not in self.items:
+            self.items.append(item)
+        else:
+            item.q += 1
+    def deleteItem(self,item):
+        if item in self.items:
+            self.items.remove(item)
+        else:
+            return print("Not in Cart")
+    def checkOut (self):
+        total = 0
+        for i in self.items:
+            price = i[1]
+            total += price
+        return total
+item1 = item("Chocolate",5 ,3)
+item2 = item("Bacon",15,1)
+item3 = item("Eggs",2,5)
+item4 = item("Pancakes",4,20)
+item5 = item("HashBrowns",6,10)
+c = shoppingCart([])
+c.addItem(item1)
+c.addItem(item2)
+c.addItem(item3)
+c.additem(item4)
+c.additem(item5)
+c.show()
+print ("You have 5 items in your cart for a total of" (c.checkOut()))
+c.removeItem(item3)
+print ("You have 2 items in your cart for a total of" (c.checkOut()))
+
+EXERCISE#5
+This is a partial repeat of problem 1. You should be able to reuse that code
+Write a Python program that asks the user to enter a GPA (integer values - 0,1,2,3 or 4). Convert the input from the user into an integer. Write an exception handler to handle the ValueError exception and display the message "ValueError occurred. Please try again". If the value entered by the user is not compatible with integer values the program will raise a ValueError exception and display the message from within the exception handler.
+Place the above code to get user input inside a while loop. As long as the user is entering an invalid numeric value, the program should continue to prompt the user to enter the GPA. When the user enters a correct value, the program should break out of the while loop and print the GPA.
+
+class item:
+    def __init__(self,n,p,q):
+        self.name = n
+        self.price = p
+        self.quantity = q
+    def show(self):
+        z = (str(self.name))
+        print(z)
+        self1 =("$")+(str(self.price))
+        print(self1)
+    def getName(self):
+        return self.name
+    def getPrice(self):
+        return ("$") + str(self.price)
+    def getQuantity(self):
+        return self.quantity
+
+class shoppingCart:
+    def __init__(self, items):
+        self.items = []
+    def show(self):
+        print(self.items)
+    def addItem(self,item):
+        if item not in self.items:
+            self.items.append(item)
+        else:
+            item.q += 1
+    def deleteItem(self,item):
+        if item in self.items:
+            self.items.remove(item)
+        else:
+            return print("Not in Cart")
+    def checkOut (self):
+        total = 0
+        for i in self.items:
+            price = i[1]
+            total += price
+        return total
+item1 = item("Chocolate",5 ,3)
+item2 = item("Bacon",15,1)
+item3 =  item("Eggs",2,5)
+c = shoppingCart([])
+c.addItem(item1)
+c.addItem(item2)
+c.addItem(item3)
+c.show()
+print ("You have 3 items in your cart for a total of" (c.checkOut()))
+c.removeItem(item3)
+print ("You have 2 items in your cart for a total of" (c.checkOut()))
+
+
+
+
+
+
+
