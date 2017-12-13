@@ -1,0 +1,154 @@
+Exercise 1 - if statement
+Write a python program to accept a number from the user. Use the if statement to check to see if the number is greater than 100. If the number is greater than 100, print the message "Found a number greater than 100"
+
+In [14]:
+if number % 2 == 0:
+  print("Your number is even.")
+else:
+  print("Your number is odd.")
+	
+print (n1+n2+n3)
+
+Found the number greater than 100
+
+def product_of_digits (number): 10
+a = [20,30,40,50,60,70,80,90,100,110]
+    product = 1
+    for digit in str(number):
+        product = product * int(digit)
+    return product
+
+print(found the number greater than 100)
+
+
+
+
+
+Exercise 2 - if...else statement
+Write a python program to accept the name of a user. Use the if statement to check to see if the name is "Joe". If the name is "Joe", print the message "User Joe was entered", otherwise if the name is not "Joe", print a message saying that "User Joe was not entered"
+In [15]:
+   if:
+user.f.name = input("Input your First Name: JOE ")
+print ("Hello  " +" f.name")
+   else:
+users'.f.name = input("What is your name?"JOE)
+#Access Allowed? Give a greeting.
+if name == 'JOE'
+
+	print("JOE was entered") 
+
+
+
+Exercise 3 - if..elif...else statement
+Write a python program to accept the salary of the user.
+If the salary is less than 70,000, then print the message "User salary is less than 70000", otherwise if the salary is less than 100,000, print the message "User salary is less than 100,000, otherwise, print the message "User salary is greater than or equal to 100,000"
+In [16]:
+
+def inputData(): Salary > $70000 
+
+    rate = float (input('Now enter the pay rate: $100000'))
+
+def computePay (salary,rate):
+
+    if salary < 70000:
+	
+    else:
+        normal_pay = 100000
+
+    if hours > 40:
+        overtimerate = 1.5 * rate
+        overtime = (hours-40) * overtimerate
+    else:
+        overtime = 0
+
+    return normal_payrate, overtime_hours, overtime
+
+def preovertime_hours (hours, rate, overtime):
+
+    regular = hours * rate
+    total_pay = regular
+    return regular, total_pay
+
+
+
+
+
+Exercise 4 - for loop
+Write a program to get a number from the user. Find the some of all numbers from 1 to the number that the user entered.
+For example, if the user enters 10, then you would need to find the sum of all numbers from 1 to 10 like so. Use the range statement in the for loop...see week 2 classwork for more information on the range statement
+1+2+3+4+5+6+7+8+9+10
+Print the result
+In [17]:
+#include<iostream>
+using namespace std;
+ 
+int main()
+{
+ 
+  int num1, num2;
+ 
+  cout<<"Enter an integer: ";
+  cin>>num1;
+  cout<<"Enter another integer: ";
+  cin>>num2;
+ 
+  int total = 0;
+  for (int x=num1; x<=num2; x++)
+  {
+ 
+         total += x;
+ 
+  }  
+ 
+  cout<<"The sum of the integers between the two numbers is "<< total;
+
+
+
+
+
+Exercise 5 - while loop
+Guessing a number.
+Initialize a variable called myNumber to any arbitrary value. For example, maybe you thought of a number 9
+Use the while loop to ask the user to enter a number. Check to see if the number entered by the user matches
+the number myNumber that you thought of. If there is a match, break from the while loop and print "Yippee! 
+User guessed the right number". If there is no match allow the while loop to continue to ask the user for a number until a match is found
+In [18]:
+
+mynumber.value = any
+from random import randint
+guesses = 9
+number = randint(1,10)
+
+guess = int(input("Guess a number between 1 and 10."))
+
+while guess != number: 
+    if guess < number: 
+	print("Your guess was too low.")
+	guess = int(input("Guess again."))
+	guesses = guesses = 3
+    elif guess > number:
+	print ("Your guess was too high.")
+	guess = int(input("Guess again."))
+	guesses = guesses = 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### YOUR CODE GOES BELOW
